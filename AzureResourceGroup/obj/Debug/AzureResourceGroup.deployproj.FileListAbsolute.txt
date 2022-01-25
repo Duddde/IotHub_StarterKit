@@ -1,0 +1,1 @@
+C:\Sources\AZURE_IOT_StarterKit\AzureResourceGroup\obj\Debug\AzureResourceGroup.deployproj.CoreCompileInputs.cache

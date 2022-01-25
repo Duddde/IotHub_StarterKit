@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using System.Diagnostics.Eventing.Reader
+@model List<API.Models.Device>
+@if (Model != null && Model.Count != 0)
+{
+    <div>
+        <h3>All devices</h3>
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th colspan="1">Device Id</th>
+                <th colspan="1">Device Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var elem in Model)
+            {
+                <tr>
+                    <td>@elem.DeviceId</td>
+                    <td>@elem.Name</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        @foreach (var elem in Model)
+        {
+            <h3>@elem.Name</h3>
+            <table class="styled-table">
+                <thead>
+                <tr>
+                    <th colspan="1">Values</th>
+                    <th colspan="1">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var val in elem.ValueList)
+                {
+                    <tr>
+                        <td>@val.Value</td>
+                        <td>@val.CreationDate.ToShortDateString()</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    </div>
+}
+else
+{
+    <div>
+        <h3> No devices found</h3>
+    </div>
+}
